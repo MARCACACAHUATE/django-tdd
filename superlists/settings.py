@@ -133,3 +133,13 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
+
+if 'DJANGO_DEBUG_FALSE' in os.environ:
+    DEBUG = False
+    SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
+    ALLOWED_HOSTS = [os.environ["SITENAME"]]
+else:
+    DEBUG = True
+    SECRET_KEY = 'django-insecure-3y1d3^o3)&bxpekk!qsuggr&l*exjfrt#+fc=r#r)3isg$klvp'
+    ALLOWED_HOSTS = ["*"]
+ 
